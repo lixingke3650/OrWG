@@ -55,10 +55,10 @@ enum limits {
 
 enum message_type {
 	MESSAGE_INVALID = 0,
-	MESSAGE_HANDSHAKE_INITIATION = 1,
-	MESSAGE_HANDSHAKE_RESPONSE = 2,
-	MESSAGE_HANDSHAKE_COOKIE = 3,
-	MESSAGE_DATA = 4
+	MESSAGE_HANDSHAKE_INITIATION = 10000,
+	MESSAGE_HANDSHAKE_RESPONSE = 20000,
+	MESSAGE_HANDSHAKE_COOKIE = 30000,
+	MESSAGE_DATA = 40000
 };
 
 struct message_header {
@@ -69,6 +69,7 @@ struct message_header {
 	 * But it turns out that by encoding this as little endian,
 	 * we achieve the same thing, and it makes checking faster.
 	 */
+	__le32 header_random;
 	__le32 type;
 };
 

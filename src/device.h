@@ -18,6 +18,8 @@
 #include <linux/net.h>
 #include <linux/ptr_ring.h>
 
+#define WG_DEVICE_SBOX_SIZE 256
+
 struct wg_device;
 
 struct multicore_worker {
@@ -61,5 +63,7 @@ struct wg_device {
 
 int wg_device_init(void);
 void wg_device_uninit(void);
+
+__le32 wg_device_get_random(void);
 
 #endif /* _WG_DEVICE_H */
