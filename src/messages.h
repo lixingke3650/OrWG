@@ -61,7 +61,6 @@ enum message_type {
 	MESSAGE_DATA = 40000
 };
 
-#pragma pack(push, 4)
 struct message_header {
 	/* The actual layout of this that we want is:
 	 * u8 type
@@ -79,6 +78,7 @@ struct message_macs {
 	u8 mac2[COOKIE_LEN];
 };
 
+#pragma pack(push, 4)
 struct message_handshake_initiation {
 	struct message_header header;
 	__le32 sender_index;
