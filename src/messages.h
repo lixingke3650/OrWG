@@ -61,6 +61,7 @@ enum message_type {
 	MESSAGE_DATA = 40000
 };
 
+#pragma pack(push, 4)
 struct message_header {
 	/* The actual layout of this that we want is:
 	 * u8 type
@@ -109,6 +110,7 @@ struct message_data {
 	__le64 counter;
 	u8 encrypted_data[];
 };
+#pragma pack(pop)
 
 #define message_data_len(plain_len) \
 	(noise_encrypted_len(plain_len) + sizeof(struct message_data))
