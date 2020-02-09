@@ -506,7 +506,6 @@ wg_noise_handshake_create_initiation(struct message_handshake_initiation *dst,
 
 	dst->header.header_random = wg_device_get_random();
 	dst->header.type = cpu_to_le32(MESSAGE_HANDSHAKE_INITIATION) ^ dst->header.header_random;
-	// dst->header.type = cpu_to_le32(MESSAGE_HANDSHAKE_INITIATION);
 
 	handshake_init(handshake->chaining_key, handshake->hash,
 		       handshake->remote_static);
@@ -658,7 +657,6 @@ bool wg_noise_handshake_create_response(struct message_handshake_response *dst,
 
 	dst->header.header_random = wg_device_get_random();
 	dst->header.type = cpu_to_le32(MESSAGE_HANDSHAKE_RESPONSE) ^ dst->header.header_random;
-	// dst->header.type = cpu_to_le32(MESSAGE_HANDSHAKE_RESPONSE);
 	dst->receiver_index = handshake->remote_index;
 
 	/* e */

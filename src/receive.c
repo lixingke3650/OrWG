@@ -33,7 +33,6 @@ static void update_rx_stats(struct wg_peer *peer, size_t len)
 
 #define SKB_HEADER_RANDOM_LE32(skb) (((struct message_header *)(skb)->data)->header_random)
 #define SKB_TYPE_LE32(skb) ((((struct message_header *)(skb)->data)->type) ^ SKB_HEADER_RANDOM_LE32(skb))
-// #define SKB_TYPE_LE32(skb) (((struct message_header *)(skb)->data)->type)
 
 static size_t validate_header_len(struct sk_buff *skb)
 {

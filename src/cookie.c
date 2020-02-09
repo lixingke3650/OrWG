@@ -187,7 +187,6 @@ void wg_cookie_message_create(struct message_handshake_cookie *dst,
 
 	dst->header.header_random = wg_device_get_random();
 	dst->header.type = cpu_to_le32(MESSAGE_HANDSHAKE_COOKIE) ^ dst->header.header_random;
-	// dst->header.type = cpu_to_le32(MESSAGE_HANDSHAKE_COOKIE);
 	dst->receiver_index = index;
 	get_random_bytes_wait(dst->nonce, COOKIE_NONCE_LEN);
 

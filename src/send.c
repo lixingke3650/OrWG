@@ -199,7 +199,6 @@ static bool encrypt_packet(struct sk_buff *skb, struct noise_keypair *keypair,
 	header = (struct message_data *)skb_push(skb, sizeof(*header));
 	header->header.header_random = wg_device_get_random();
 	header->header.type = cpu_to_le32(MESSAGE_DATA) ^ header->header.header_random;
-	// header->header.type = cpu_to_le32(MESSAGE_DATA);
 	header->key_idx = keypair->remote_index;
 	header->counter = cpu_to_le64(PACKET_CB(skb)->nonce);
 	pskb_put(skb, trailer, trailer_len);
