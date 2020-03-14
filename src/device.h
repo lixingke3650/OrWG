@@ -10,6 +10,7 @@
 #include "allowedips.h"
 #include "peerlookup.h"
 #include "cookie.h"
+#include "orwg.h"
 
 #include <linux/types.h>
 #include <linux/netdevice.h>
@@ -17,8 +18,6 @@
 #include <linux/mutex.h>
 #include <linux/net.h>
 #include <linux/ptr_ring.h>
-
-#define WG_DEVICE_SBOX_SIZE 256
 
 struct wg_device;
 

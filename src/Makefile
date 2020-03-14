@@ -9,15 +9,20 @@ DESTDIR ?=
 SRCDIR ?= $(PREFIX)/src
 DKMSDIR ?= $(SRCDIR)/wireguard
 DEPMOD ?= depmod
+PYTHON ?= python
 
 PWD := $(shell pwd)
 
-all: module tools
+all: generate module tools
+random: generate
 debug: module-debug tools-debug
 
 ifneq ($(V),1)
 MAKEFLAGS += --no-print-directory
 endif
+
+generate:
+	$(PYTHON) $(PWD)/tools/orwg/wgrandom.py
 
 version.h:
 	@export GIT_CEILING_DIRECTORIES="$$(readlink -f ../..)" && \
